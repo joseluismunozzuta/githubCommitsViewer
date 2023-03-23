@@ -1,4 +1,0 @@
-Commands for react
-
-npx create-react-app frontend
-npm install axios

@@ -6,17 +6,9 @@ export const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider = ({children}) => {
 
-    let [numbercommits, setNumbercommits] = useState(0);
-
-    const nextCommit = () => {
-        numbercommits++
-        setNumbercommits(numbercommits);
-    }
+    let [number, setNumber] = useState(0);
     
-    return <AppContext.Provider value={{
-        numbercommits, 
-        nextCommit
-    }}>{children}</AppContext.Provider>
+    return <AppContext.Provider value={{number, setNumber}}>{children}</AppContext.Provider>
 }
 
 export default AppContextProvider;

@@ -10,11 +10,9 @@ export class AppController {
   async getAllCommits() {
     const url =
       'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits';
+    const token = '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';
     const response = await axios.get(url, {
-      headers: {
-        Authorization:
-          'token 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',
-      },
+      headers: { Authorization: `token ${token}` },
     });
     const commits = response.data;
     return commits;

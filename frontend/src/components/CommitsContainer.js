@@ -6,27 +6,26 @@ import { useAppContext } from "../context/AppContext";
 
 const CommitsContainer = () => {
 
-    let { numbercommits } = useAppContext();
-    const { nextCommit } = useAppContext();
     const [commits, setCommits] = useState([]);
-    let [number, setNumber] = useState(0);
+    const {setNumber} = useAppContext();
+    let {number} = useAppContext();
+    
 
     useEffect(() => {
         async function retrieveCommits() {
-            try {
-                const commits = await axios.get('http://localhost:3001/commits');
-                setCommits(commits.data);
-                setNumber(commits.length);
-            } catch (err) {
-                console.log(err);
-            }
+            await axios.get('http://localhost:3001/commits').then((response) => {
+                setCommits(response.data);
+                setNumber(response.data.length + 1);
+            }).catch((error) => {
+                console.log(error);
+            })
         }
 
         retrieveCommits();
     }, []);
 
     return (
-        <div className="flex justify-center flex-wrap flex-col">
+        <div className="flex justify-center flex-wrap flex-col bg-white">
             <h1 className="text-3xl font-bold underline text-center my-5">
                 Github Commits
             </h1>

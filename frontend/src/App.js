@@ -4,14 +4,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Top from './components/Top';
 import CommitsContainer from './components/CommitsContainer';
+import AppContextProvider from './context/AppContext';
 
 function App() {
 
   return (
-    <>
-      <Top></Top>
-      <CommitsContainer></CommitsContainer>
-    </>
+    <AppContextProvider>
+      <Top/>
+      <CommitsContainer/>
+    </AppContextProvider>
   );
 }
 

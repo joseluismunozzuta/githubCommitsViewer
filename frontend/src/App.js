@@ -23,7 +23,9 @@ function App() {
 
   return (
     <div className="Github Commit Viewer">
-      <h1>Github Commits</h1>
+      <h1 className="text-3xl font-bold underline">
+        Github Commits
+      </h1>
       <table>
         <thead>
           <tr>

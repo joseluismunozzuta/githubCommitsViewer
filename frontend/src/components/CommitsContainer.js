@@ -26,10 +26,10 @@ const CommitsContainer = () => {
 
     return (
         <div className="flex justify-center flex-wrap flex-col bg-white">
-            <h1 className="text-3xl font-bold underline text-center my-5">
+            <h1 className="text-3xl text-black font-bold text-center my-5">
                 Github Commits
             </h1>
-            <div className="justify-center flex flex-wrap gap-5">
+            <div className="my-5 justify-center flex flex-wrap gap-16">
                 {commits.map((c) => {
                     number--;
                     return <CommitDetail key={c.sha} commit={c} num={number} />

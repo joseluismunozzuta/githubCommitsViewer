@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const UniqueCommitContainer = () => {
 
-    const {shaID} = useParams();
+    const { shaID } = useParams();
     const { uniquecommit } = useAppContext();
     const { retrieveCommitBySHA } = useAppContext();
 
@@ -14,15 +14,11 @@ const UniqueCommitContainer = () => {
     }, [])
 
     return (
-        <div>
-            <h1 className="text-3xl text-black font-bold text-center my-5">
-                A commit
-            </h1>
+        <div className="bg-purple-200">
             {uniquecommit.map((c => {
                 return <UniqueCommitDetail commit={c} key={c.sha} />
             }))}
         </div>
-
     )
 }
 

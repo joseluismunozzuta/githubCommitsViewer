@@ -4,7 +4,7 @@ import '../footer.css';
 const Footer = () => {
 
     return (
-        <footer className="footer footer-center bg-primary text-primary-content">
+        <footer className="footer footer-center bg-base-200 text-primary-content">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
             <div>
                 <img width="140" height="140" alt="#" src="https://firebasestorage.googleapis.com/v0/b/static-images-ee67c.appspot.com/o/logoJlmz.png?alt=media&token=2692feb9-eb92-44c6-bfd1-a99359ce0fe7" className="inline-block fill-current" />
@@ -17,17 +17,17 @@ const Footer = () => {
                 <div className="navbar">
                     <div className="navbar__item -purple mx-2">
                         <span className="navbar__icon">
-                            <i className="fa-brands fa-instagram"></i>
+                            <a href="https://instagram.com/joseluismunozz?igshid=ZDdkNTZiNTM="><i className="fa-brands fa-instagram"></i></a>
                         </span>
                     </div>
                     <div className="navbar__item -navy-blue mx-2">
                         <span className="navbar__icon">
-                            <i className="fa-brands fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/jlmz/"><i className="fa-brands fa-linkedin"></i></a>
                         </span>
                     </div>
                     <div className="navbar__item -black mx-2">
                         <span className="navbar__icon">
-                            <i className="fa-brands fa-github"></i>
+                            <a href="https://github.com/joseluismunozzuta"><i className="fa-brands fa-github"></i></a>
                         </span>
                     </div>
                 </div>

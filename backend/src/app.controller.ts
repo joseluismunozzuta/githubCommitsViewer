@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import axios from 'axios';
 
@@ -17,6 +17,34 @@ export class AppController {
       });
       const commits = response.data;
       return commits;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
+
+  @Get('committer')
+  async getCommitterInfo() {
+    try {
+      const url =
+        'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits';
+      const response = await axios.get(url);
+      const commits = response.data;
+      return commits;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
+
+  @Get('sha')
+  async getCommitBySHA(@Query('sha') sha: string) {
+    try {
+      const url = `https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits/${sha}`;
+      const response = await axios.get(url);
+      const commitbySha = response.data;
+      console.log(sha);
+      return commitbySha;
     } catch (error) {
       console.error(error);
       return [];

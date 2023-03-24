@@ -16,12 +16,10 @@ const CommitDetail = ({ commit, num }) => {
                     {commit.commit.message}
                     <div className="badge badge-secondary">#{num}</div>
                 </h2>
-                <p className="font-light text-slate-300">This commit was done by <span className="font-bold italic">{commit.commit.author.name}</span> on
+                <p className="font-light text-slate-300 text-center">This commit was done by <span className="font-bold italic">{commit.commit.author.name}</span> on
                     <span className="italic font-bold"> {newdate}</span> at <span className="font-bold italic"> {newtime}</span></p>
-                <div className=" text-zinc-300 flex flex-col flex-wrap justify-center">
-                    <p className="text-sm text-center font-extralight my-2">SHA:</p>
-                    <div className="badge badge-outline">{commit.sha}</div>
-                    <Link className="btn btn-warning fw-bold text-capitalize p-2" to={`/viewcommit/${commit.sha}`}>View Commit</Link>
+                <div className=" text-zinc-300 flex justify-center">
+                    <Link  className="btn btn-outline btn-secondary text-white mt-4 w-6/12" to={`/viewcommit/${commit.sha}`}>View Commit</Link>
                 </div>
             </div>
         </div>

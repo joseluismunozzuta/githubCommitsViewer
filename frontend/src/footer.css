@@ -1,0 +1,86 @@
+body {
+    margin: 0px;
+}
+
+.wrapper {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar {
+    display: block;
+    align-items: center;
+    padding: 10px 20px 15px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.navbar__item {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.navbar__item::before,
+.navbar__item:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    border-radius: 50%;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.55s cubic-bezier(0.71, 0.03, 0.23, 0.95);
+}
+
+.navbar__item::after {
+    box-shadow: 0 7px 15px currentColor;
+}
+
+.navbar__item.-navy-blue {
+    color: #405fff;
+}
+
+.navbar__item.-black {
+    color: #000000;
+}
+
+.navbar__item.-purple {
+    color: #cb17bc;
+}
+
+.navbar__item:hover::before,
+.navbar__item:hover::after {
+    transform: translateY(-38px) scale(1.1);
+}
+
+.navbar__item:hover::before {
+    opacity: 1;
+}
+
+.navbar__item:hover::after {
+    opacity: 0.4;
+}
+
+.navbar__item:hover .navbar__icon {
+    transform: translateY(-38px) scale(1.25);
+    color: #fff;
+    transition-delay: 0.1s, 0.1s;
+}
+
+.navbar__icon {
+    transition: all 0.5s cubic-bezier(0.71, 0.03, 0.23, 0.95);
+    transition-delay: 0.1s;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}

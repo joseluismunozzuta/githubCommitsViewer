@@ -11,10 +11,7 @@ export class AppController {
     try {
       const url =
         'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits';
-      const token = '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';
-      const response = await axios.get(url, {
-        headers: { Authorization: `${token}` },
-      });
+      const response = await axios.get(url);
       const commits = response.data;
       return commits;
     } catch (error) {

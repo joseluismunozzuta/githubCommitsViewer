@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import dateFormat from "dateformat";
 
 const CommitDetail = ({ commit, num }) => {
@@ -20,6 +21,7 @@ const CommitDetail = ({ commit, num }) => {
                 <div className=" text-zinc-300 flex flex-col flex-wrap justify-center">
                     <p className="text-sm text-center font-extralight my-2">SHA:</p>
                     <div className="badge badge-outline">{commit.sha}</div>
+                    <Link className="btn btn-warning fw-bold text-capitalize p-2" to={`/viewcommit`}>View Commit</Link>
                 </div>
             </div>
         </div>

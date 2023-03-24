@@ -1,26 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import {useEffect } from "react";
 import CommitDetail from "./CommitDetail";
 import { useAppContext } from "../context/AppContext";
 
 const CommitsContainer = () => {
 
-    const [commits, setCommits] = useState([]);
-    const {setNumber} = useAppContext();
     let {number} = useAppContext();
+    const {retrieveCommits} = useAppContext();
+    const {commits} = useAppContext();
     
 
     useEffect(() => {
-        async function retrieveCommits() {
-            await axios.get('http://localhost:3001/commits').then((response) => {
-                setCommits(response.data);
-                setNumber(response.data.length + 1);
-            }).catch((error) => {
-                console.log(error);
-            })
-        }
-
         retrieveCommits();
     }, []);
 

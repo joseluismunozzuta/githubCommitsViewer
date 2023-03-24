@@ -43,7 +43,6 @@ export class AppController {
       const url = `https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits/${sha}`;
       const response = await axios.get(url);
       const commitbySha = response.data;
-      console.log(sha);
       return commitbySha;
     } catch (error) {
       console.error(error);

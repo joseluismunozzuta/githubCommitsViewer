@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Top/>
         <Routes>
-          <Route path='/' element={<CommitsContainer />} />
+          <Route path='/' element={<CommitsContainer/>} />
           <Route path='/viewcommit/:shaID' element={<UniqueCommitContainer />} />
           <Route path='/repoInput' element={<RepoInfoInput />} />
         </Routes>

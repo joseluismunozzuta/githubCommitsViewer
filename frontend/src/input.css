@@ -1,0 +1,101 @@
+:root {
+    --white: #fbf9ff;
+    --light-purple: #f7e8ff;
+    --purple: rgb(124 58 237);
+    --black: #432d60;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--white);
+    /* background: pink; */
+    color: var(--black);
+}
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    transition: 1.5s ease;
+}
+.repo-wrapper {
+    align-items: center;
+    height: fit-content;
+    width: 40%;
+    transition: .8s ease;
+}
+.repo-wrapper img{
+    width: 45%;
+    border-radius: 50px;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+}
+.repo-wrapper h1 {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--purple);
+    line-height: 40px;
+}
+.repo-wrapper h2 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 30px;
+}
+.repoinfo-div{
+    background: url(https://firebasestorage.googleapis.com/v0/b/static-images-ee67c.appspot.com/o/image1.svg?alt=media&token=79895ae6-b864-4723-b934-db5a59b21a72) no-repeat;
+    background-size: cover;
+    background-position: left;
+    border: 1.5px solid var(--purple);
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px var(--purple);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+.form label {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.form input[type='text'] {
+    height: 50px;
+    width: 300px;
+    align-self: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: var(--purple);
+    background-color: var(--white);
+    border: 2.5px solid var(--purple);
+    border-radius: 20px;
+    outline: none;
+    transition: .3s ease;
+}
+.form input[type='submit'] {
+    height: 50px;
+    width: 150px;
+    align-self: center;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: linear-gradient(45deg, #b46ee5,#e3b2ff);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    transition: .3s ease;
+}
+.form input[type='submit']:hover {
+    width: 180px;
+    letter-spacing: 2px;
+}
+

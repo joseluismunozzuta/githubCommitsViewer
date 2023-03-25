@@ -5,6 +5,7 @@ import CommitsContainer from './components/CommitsContainer';
 import AppContextProvider from './context/AppContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UniqueCommitContainer from './components/UniqueCommitContainer';
+import RepoInfoInput from './components/RepoInfoInput';
 import Footer from './components/Footer';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<CommitsContainer />} />
           <Route path='/viewcommit/:shaID' element={<UniqueCommitContainer />} />
+          <Route path='/repoInput' element={<RepoInfoInput />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

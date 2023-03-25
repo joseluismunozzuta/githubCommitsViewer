@@ -18,6 +18,7 @@ function App() {
           <Route path='/' element={<CommitsContainer/>} />
           <Route path='/viewcommit/:shaID' element={<UniqueCommitContainer />} />
           <Route path='/repoInput' element={<RepoInfoInput />} />
+          <Route path='/viewRepo/:ownerName/:repo' element={<CommitsContainer />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

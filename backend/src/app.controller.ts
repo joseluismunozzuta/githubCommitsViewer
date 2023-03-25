@@ -46,4 +46,20 @@ export class AppController {
       return [];
     }
   }
+
+  @Get('other')
+  async getAnotherRepoCommits(
+    @Query('owner') owner: string,
+    @Query('reponame') reponame: string,
+  ) {
+    try {
+      const url = `https://api.github.com/repos/${owner}/${reponame}/commits`;
+      const response = await axios.get(url);
+      const commitbySha = response.data;
+      return commitbySha;
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  }
 }

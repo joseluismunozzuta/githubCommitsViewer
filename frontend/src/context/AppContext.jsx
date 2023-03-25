@@ -7,6 +7,7 @@ export const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider = ({ children }) => {
 
+    let [fetchError, setFetcherror] = useState(false);
     let [number, setNumber] = useState(0);
     const [commits, setCommits] = useState([]);
     const [uniquecommit, setUniquecommit] = useState([]);
@@ -14,8 +15,30 @@ const AppContextProvider = ({ children }) => {
     async function retrieveCommits() {
         await axios.get('http://localhost:3001/commits')
         .then((response) => {
+            console.log("Trace my commits");
             setCommits(response.data);
             setNumber(response.data.length + 1);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    async function retrieveOtherCommits(owner, reponame){
+        await axios.get(`http://localhost:3001/commits/other?owner=${owner}&reponame=${reponame}`)
+        .then((response) => {
+            console.log("Trace OTHER commits");
+            console.log(response);
+            if(response.data.status === 404){
+                console.log("Error in retrieving other commits");
+                setFetcherror(true);
+            }else if(response.data.status === 403){
+                setFetcherror(true);
+                console.log("Error in API");
+            }else{
+                setFetcherror(false);
+                setCommits(response.data);
+                setNumber(response.data.length + 1);
+            }            
         }).catch((error) => {
             console.log(error);
         })
@@ -33,12 +56,15 @@ const AppContextProvider = ({ children }) => {
     }
 
     return <AppContext.Provider value={{
+        fetchError,
+        setFetcherror,
         number,
         setNumber,
         uniquecommit,
         commits,
         retrieveCommitBySHA,
-        retrieveCommits
+        retrieveCommits,
+        retrieveOtherCommits
     }}>{children}</AppContext.Provider>
 }
 

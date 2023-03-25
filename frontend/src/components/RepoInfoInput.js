@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import '../input.css';
 
 const RepoInfoInput = () => {
@@ -29,12 +30,12 @@ const RepoInfoInput = () => {
                     <div className="repoinfo-div text-center p-16">
                         <h1>Github Repo Info</h1>
                         <h2>The repository must be public</h2>
-                        <form action="#" className="form my-4">
+                        <form className="form my-4">
                             <label htmlFor="owner">Owner</label>
                             <input type="text" value={owner} onChange={handleOwnerChange} />
                             <label htmlFor="reponame">Repository name</label>
                             <input type="text" value={repoName} onChange={handleRepoChange} />
-                            <button type="submit" disabled={isDisabled}>Check Repo</button>
+                            <Link to={`/viewRepo/${owner}/${repoName}`}><button type="submit" disabled={isDisabled}>Check Repo</button></Link>
                         </form>
                     </div>
 

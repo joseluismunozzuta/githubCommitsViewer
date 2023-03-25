@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 
 const UniqueCommitContainer = () => {
 
-    const { shaID } = useParams();
+    const { shaID, owner, reponame } = useParams();
     const { uniquecommit } = useAppContext();
     const { retrieveCommitBySHA } = useAppContext();
 
     useEffect(() => {
-        retrieveCommitBySHA(shaID);
+        retrieveCommitBySHA(shaID, owner, reponame);
     }, [])
 
     return (

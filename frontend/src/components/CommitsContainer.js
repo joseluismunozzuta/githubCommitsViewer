@@ -8,15 +8,11 @@ const CommitsContainer = () => {
 
     const { ownerName, repo } = useParams();
     let { fetchError } = useAppContext();
-    const {setFetcherror} = useAppContext();
+    const { setFetcherror } = useAppContext();
     let { number } = useAppContext();
     const { retrieveCommits } = useAppContext();
     const { retrieveOtherCommits } = useAppContext();
     const { commits } = useAppContext();
-
-    useEffect(() =>{
-        console.log(fetchError);
-    })
 
     useEffect(() => {
         if (!repo) {
@@ -42,7 +38,12 @@ const CommitsContainer = () => {
                 <div className="my-8 justify-center flex flex-wrap gap-16">
                     {commits.map((c) => {
                         number--;
-                        return <CommitDetail key={c.sha} commit={c} num={number} />
+                        return <CommitDetail
+                            owner={ownerName || "joseluismunozzuta"}
+                            reponame={repo || "githubCommitsViewer"}
+                            key={c.sha}
+                            commit={c}
+                            num={number} />
                     })}
                 </div>
             </div>}

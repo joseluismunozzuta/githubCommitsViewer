@@ -35,9 +35,13 @@ export class AppController {
   }
 
   @Get('sha')
-  async getCommitBySHA(@Query('sha') sha: string) {
+  async getCommitBySHA(
+    @Query('sha') sha: string,
+    @Query('owner') owner: string,
+    @Query('reponame') reponame: string,
+  ) {
     try {
-      const url = `https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits/${sha}`;
+      const url = `https://api.github.com/repos/${owner}/${reponame}/commits/${sha}`;
       const response = await axios.get(url);
       const commitbySha = response.data;
       return commitbySha;

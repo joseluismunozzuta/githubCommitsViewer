@@ -15,7 +15,6 @@ const AppContextProvider = ({ children }) => {
     async function retrieveCommits() {
         await axios.get('http://localhost:3001/commits')
         .then((response) => {
-            console.log("Trace my commits");
             setCommits(response.data);
             setNumber(response.data.length + 1);
         }).catch((error) => {
@@ -26,8 +25,6 @@ const AppContextProvider = ({ children }) => {
     async function retrieveOtherCommits(owner, reponame){
         await axios.get(`http://localhost:3001/commits/other?owner=${owner}&reponame=${reponame}`)
         .then((response) => {
-            console.log("Trace OTHER commits");
-            console.log(response);
             if(response.data.status === 404){
                 console.log("Error in retrieving other commits");
                 setFetcherror(true);
@@ -44,8 +41,8 @@ const AppContextProvider = ({ children }) => {
         })
     }
 
-    async function retrieveCommitBySHA(sha) {
-        await axios.get(`http://localhost:3001/commits/sha?sha=${sha}`)
+    async function retrieveCommitBySHA(sha, owner, reponame) {
+        await axios.get(`http://localhost:3001/commits/sha?sha=${sha}&owner=${owner}&reponame=${reponame}`)
         .then((response) => {
             let arr = [];
             arr.push(response.data);

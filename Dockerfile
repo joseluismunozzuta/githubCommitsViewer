@@ -18,7 +18,8 @@ RUN cd backend && npm run build
 RUN cd frontend && npm run build
 
 # Expose port 3000 for the frontend and port 8080 for the backend
-EXPOSE 3000 3001
+EXPOSE 3001
+RUN cd frontend && npm run start
 
 # Start the backend and frontend
 CMD npm run start

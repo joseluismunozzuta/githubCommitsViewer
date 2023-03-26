@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the package.json and package-lock.json files to the container
 COPY ./frontend/package*.json ./backend/package*.json ./
 
+RUN ls
+
 # Install the dependencies for both the frontend and backend
 RUN npm ci --prefix frontend && npm ci --prefix backend
 

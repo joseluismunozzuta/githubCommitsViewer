@@ -1,0 +1,19 @@
+{
+  "name": "fullstackapp",
+  "version": "1.0.0",
+  "description": "ReactJS + NestJS Fullstack App for displaying commits of a repository.",
+  "scripts": {
+    "start": "cd backend && npm start && cd ../frontend && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseluismunozzuta/githubCommitsViewer.git"
+  },
+  "author": "joseluismunozzuta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseluismunozzuta/githubCommitsViewer/issues"
+  },
+  "homepage": "https://github.com/joseluismunozzuta/githubCommitsViewer#readme"
+}

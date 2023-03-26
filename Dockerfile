@@ -16,7 +16,9 @@ COPY . /app
 RUN cd backend && npm install && cd ../frontend && npm install
 
 # Build the frontend application
-RUN cd frontend && npm run build
+RUN cd backend && npm run build cd ../frontend && npm run build
+
+RUN cd backend && ls && cd ../frontend && ls && cd .. && ls
 
 # Expose port 3000 for the frontend and port 8080 for the backend
 EXPOSE 3000 3001

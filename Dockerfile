@@ -21,4 +21,4 @@ RUN cd frontend && npm run build
 EXPOSE 3000 3001
 
 # Start the backend and frontend
-CMD npm run start:prod
+CMD npm run start

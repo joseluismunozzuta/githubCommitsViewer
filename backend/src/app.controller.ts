@@ -10,21 +10,7 @@ export class AppController {
   async getAllCommits() {
     try {
       const url =
-        'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits';
-      const response = await axios.get(url);
-      const commits = response.data;
-      return commits;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  }
-
-  @Get('committer')
-  async getCommitterInfo() {
-    try {
-      const url =
-        'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits';
+        'https://api.github.com/repos/joseluismunozzuta/githubCommitsViewer/commits?per_page=100';
       const response = await axios.get(url);
       const commits = response.data;
       return commits;
@@ -57,7 +43,7 @@ export class AppController {
     @Query('reponame') reponame: string,
   ) {
     try {
-      const url = `https://api.github.com/repos/${owner}/${reponame}/commits`;
+      const url = `https://api.github.com/repos/${owner}/${reponame}/commits?per_page=100`;
       const response = await axios.get(url);
       const commitbySha = response.data;
       return commitbySha;

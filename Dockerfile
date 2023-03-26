@@ -5,16 +5,15 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container
-COPY ./frontend/package*.json ./frontend 
-COPY ./backend/package*.json ./backend
+COPY ./frontend/package*.json ./backend/package*.json ./
 
 RUN ls
 
+# Copy the rest of the application code to the container
+COPY . /app
+
 # Install the dependencies for both the frontend and backend
 RUN cd backend && npm install && cd ../frontend && npm install
-
-# Copy the rest of the application code to the container
-COPY . .
 
 # Build the frontend application
 RUN cd frontend && npm run build

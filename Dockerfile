@@ -16,7 +16,7 @@ COPY . /app
 RUN cd backend && npm install && cd ../frontend && npm install
 
 # Build the frontend application
-RUN cd backend && npm run build cd ../frontend && npm run build
+RUN cd backend && npm run build && cd ../frontend && npm run build
 
 RUN cd backend && ls && cd ../frontend && ls && cd .. && ls
 

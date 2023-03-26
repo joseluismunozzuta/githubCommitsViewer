@@ -5,7 +5,7 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container
-COPY ./frontend/package*.json ./backend/package*.json ./
+COPY  ./backend/package*.json ./frontend/package*.json ./
 
 RUN ls
 
@@ -18,10 +18,13 @@ RUN cd backend && npm install && cd ../frontend && npm install
 # Build the frontend application
 RUN cd backend && npm run build && cd ../frontend && npm run build
 
-RUN cd backend && ls && cd ../frontend && ls && cd .. && ls
+RUN cd backend && ls 
+RUN cd frontend && ls 
+RUN ls
 
 # Expose port 3000 for the frontend and port 8080 for the backend
 EXPOSE 3000 3001
 
 # Start the backend and frontend
-CMD npm run start:prod
+CMD npm start
+

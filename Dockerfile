@@ -5,7 +5,8 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container
-COPY ./frontend/package*.json ./backend/package*.json ./
+COPY ./frontend/package*.json ./frontend 
+COPY ./backend/package*.json ./backend
 
 RUN ls
 

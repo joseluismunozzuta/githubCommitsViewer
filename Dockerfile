@@ -21,5 +21,8 @@ COPY ./backend/package*.json ./
 # Expose the port that the backend will run on
 EXPOSE 3001
 
+# Set the working directory to the backend directory
+WORKDIR /app/backend
+
 # Start the backend
-CMD ["cd backend", "npm", "run", "start"]
+CMD ["npm", "run", "start"]

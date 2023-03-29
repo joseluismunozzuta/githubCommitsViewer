@@ -19,7 +19,7 @@ RUN cd frontend && npm run build
 COPY ./backend/package*.json ./
 
 # Expose the port that the backend will run on
-EXPOSE 3000
+EXPOSE 3001
 
 # Start the backend
 CMD ["npm", "run", "start:prod"]

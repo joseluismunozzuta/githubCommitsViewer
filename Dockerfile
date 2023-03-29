@@ -22,4 +22,4 @@ COPY ./backend/package*.json ./
 EXPOSE 3001
 
 # Start the backend
-CMD ["cd backend", "npm", "run", "start:prod"]
+CMD ["cd backend", "npm", "run", "start"]

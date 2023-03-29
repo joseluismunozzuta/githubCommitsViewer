@@ -4,16 +4,19 @@ FROM node:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the package.json files and install the dependencies
-COPY package*.json ./
-RUN npm install
-
 # Copy the frontend and backend directories
 COPY ./frontend ./frontend
 COPY ./backend ./backend
 
+#Install dependencies
+RUN cd backend && npm install
+RUN cd frontend && npm install
+
 # Build the frontend
 RUN cd frontend && npm run build
+
+# Copy the package.json
+COPY ./backend/package*.json ./
 
 # Expose the port that the backend will run on
 EXPOSE 3000

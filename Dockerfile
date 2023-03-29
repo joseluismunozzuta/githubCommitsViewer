@@ -1,20 +1,22 @@
-# Use an official Node runtime as a parent image
-FROM node:14-alpine
+# Use the latest node image as a base
+FROM node:latest
 
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the rest of the application code to the container
-COPY . /app
-RUN ls
-# Install the dependencies for both the frontend and backend
-RUN cd backend && npm install 
-RUN cd frontend && npm install
+# Copy the package.json files and install the dependencies
+COPY package*.json ./
+RUN npm install
 
-# Build the frontend application
-RUN cd backend && npm run build 
+# Copy the frontend and backend directories
+COPY ./frontend ./frontend
+COPY ./backend ./backend
+
+# Build the frontend
 RUN cd frontend && npm run build
 
-# Expose port 3000 for the frontend and port 8080 for the backend
-EXPOSE 3001
-CMD npm run start
+# Expose the port that the backend will run on
+EXPOSE 3000
+
+# Start the backend
+CMD ["npm", "run", "start:prod"]

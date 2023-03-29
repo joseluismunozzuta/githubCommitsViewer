@@ -13,7 +13,7 @@ const AppContextProvider = ({ children }) => {
     const [uniquecommit, setUniquecommit] = useState([]);
 
     async function retrieveCommits() {
-        await axios.get('http://localhost:3001/api/commits')
+        await axios.get('https://githubcommitsview-service.onrender.com/api/commits')
         .then((response) => {
             setCommits(response.data);
             setNumber(response.data.length + 1);
@@ -23,7 +23,7 @@ const AppContextProvider = ({ children }) => {
     }
 
     async function retrieveOtherCommits(owner, reponame){
-        await axios.get(`http://localhost:3001/api/commits/other?owner=${owner}&reponame=${reponame}`)
+        await axios.get(`https://githubcommitsview-service.onrender.com/api/commits/other?owner=${owner}&reponame=${reponame}`)
         .then((response) => {
             if(response.data.status === 404){
                 console.log("Error in retrieving other commits");
@@ -42,7 +42,7 @@ const AppContextProvider = ({ children }) => {
     }
 
     async function retrieveCommitBySHA(sha, owner, reponame) {
-        await axios.get(`http://localhost:3001/api/commits/sha?sha=${sha}&owner=${owner}&reponame=${reponame}`)
+        await axios.get(`https://githubcommitsview-service.onrender.com/api/commits/sha?sha=${sha}&owner=${owner}&reponame=${reponame}`)
         .then((response) => {
             let arr = [];
             arr.push(response.data);

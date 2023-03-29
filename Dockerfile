@@ -4,11 +4,9 @@ FROM node:14-alpine
 # Set the working directory to /app
 WORKDIR /app
 
-RUN ls
-
 # Copy the rest of the application code to the container
 COPY . /app
-
+RUN ls
 # Install the dependencies for both the frontend and backend
 RUN cd backend && npm install 
 RUN cd frontend && npm install
@@ -19,7 +17,4 @@ RUN cd frontend && npm run build
 
 # Expose port 3000 for the frontend and port 8080 for the backend
 EXPOSE 3001
-RUN cd frontend && npm run start
-EXPOSE 3000
-# Start the backend and frontend
 CMD npm run start

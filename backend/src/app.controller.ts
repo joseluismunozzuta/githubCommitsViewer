@@ -2,11 +2,11 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import axios from 'axios';
 
-@Controller('commits')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/api/commits')
   async getAllCommits() {
     try {
       const url =
@@ -20,7 +20,7 @@ export class AppController {
     }
   }
 
-  @Get('sha')
+  @Get('api/commits/sha')
   async getCommitBySHA(
     @Query('sha') sha: string,
     @Query('owner') owner: string,
@@ -37,7 +37,7 @@ export class AppController {
     }
   }
 
-  @Get('other')
+  @Get('api/commits/other')
   async getAnotherRepoCommits(
     @Query('owner') owner: string,
     @Query('reponame') reponame: string,

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ReactJS + NestJS Fullstack App for displaying commits of a repository.",
   "scripts": {
-    "start": "cd frontend && npm start && cd ../backend && npm start",
+    "start": "cd backend && npm start:prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
